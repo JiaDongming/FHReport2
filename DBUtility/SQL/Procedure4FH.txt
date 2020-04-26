@@ -1,0 +1,26 @@
+﻿--该脚本用于统计烽火指定目录下的大家的工作量所用，遍历循环获得所有的烽火目录
+--该存储过程脚本用于搜索某节点目录下所有的子目录，包括自身
+--1. 创建临时表（存储查询结果）
+--drop table TmpTable
+create table TmpTable(projectid int, parentid int,subprojectid int,displayorder int) --创建临时表
+
+---2. 存储过程：根据指定的父目录，找到所有子目录以及自身，最后返回标结果
+create proc querytree4FH
+@subprojectid varchar(100)
+as
+begin
+declare @id int
+--declare @T_tmp table(projectid int, parentid int,subprojectid int,displayorder int,uniqueorderid int)
+delete from TmpTable
+insert into TmpTable select * from SubProjectTree where ParentID=@subprojectid and ProjectID=100
+while(@@rowcount>0)
+begin
+insert into TmpTable select * from SubProjectTree where parentid in (select subprojectid from TmpTable where ProjectID=100) and ChildID not in(select subprojectid from TmpTable where ProjectID=100) and ProjectID=100
+end
+insert into TmpTable select * from SubProjectTree where ChildID=@subprojectid and ProjectID=100
+select * from TmpTable 
+end
+
+--3. 调用示例
+--drop proc querytree4FH
+exec querytree4FH '57442'

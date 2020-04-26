@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DFB2082E-F0D4-4223-B1E1-9E44E4922799}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomReports</RootNamespace>
+    <AssemblyName>CustomReports</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="VsWebSite.Interop100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS\calendar.gif" />
+    <Content Include="CSS\chosen-sprite%402x.png" />
+    <Content Include="CSS\chosen-sprite.png" />
+    <Content Include="CSS\chosen.css" />
+    <Content Include="CSS\jquery.multiselect.css" />
+    <Content Include="CSS\ui-lightness\images\animated-overlay.gif" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="CSS\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="CSS\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="CSS\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="CSS\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="CSS\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="CSS\ui-lightness\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="ECharts\echarts.common.min.js" />
+    <Content Include="ECharts\echarts.js" />
+    <Content Include="frameline.html" />
+    <Content Include="Images\abnormal.gif" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\Distribution.gif" />
+    <Content Include="Images\Expand.png" />
+    <Content Include="Images\FolderClose.gif" />
+    <Content Include="Images\FolderOpen.gif" />
+    <Content Include="Images\Hide.png" />
+    <Content Include="Images\icon_Collapse.gif" />
+    <Content Include="Images\icon_Expand.gif" />
+    <Content Include="Images\leftBg.gif" />
+    <Content Include="Images\leftBg1.gif" />
+    <Content Include="Images\List.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\loading_2.gif" />
+    <Content Include="Images\loading_3.gif" />
+    <Content Include="Images\mainBg.gif" />
+    <Content Include="Images\middleBg.gif" />
+    <Content Include="Images\normal.gif" />
+    <Content Include="Images\rightBg.gif" />
+    <Content Include="Images\saveAsImage.gif" />
+    <Content Include="Images\statusdelay.gif" />
+    <Content Include="Images\statusok.gif" />
+    <Content Include="Images\tableTopBg.gif" />
+    <Content Include="Images\toExcel.gif" />
+    <Content Include="Images\Trend.gif" />
+    <Content Include="Images\warning.gif" />
+    <Content Include="JS\chosen.jquery.min.js" />
+    <Content Include="JS\FrameLoadingIndicator.js" />
+    <Content Include="JS\jquery-3.2.1.min.js" />
+    <Content Include="JS\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="JS\jquery.multiselect.js" />
+    <Content Include="JS\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="JS\KDChart.js" />
+    <Content Include="JS\Report10.js" />
+    <Content Include="JS\Report11.js" />
+    <Content Include="JS\Report12.js" />
+    <Content Include="JS\Report13.js" />
+    <Content Include="JS\Report14.js" />
+    <Content Include="JS\Report15.js" />
+    <Content Include="JS\Report16.js" />
+    <Content Include="JS\Report17.js" />
+    <Content Include="JS\Report18.js" />
+    <Content Include="JS\Report19.js" />
+    <Content Include="JS\Report20.js" />
+    <Content Include="JS\Report21.js" />
+    <Content Include="JS\Report3.js" />
+    <Content Include="JS\Report4Internal.js" />
+    <Content Include="JS\Report4FH.js" />
+    <Content Include="JS\Report4.js" />
+    <Content Include="JS\Report5.js" />
+    <Content Include="JS\Report6.js" />
+    <Content Include="JS\Report7.js" />
+    <Content Include="JS\Report8.js" />
+    <Content Include="JS\Report9.js" />
+    <Content Include="JS\ReportLeftTree.js" />
+    <Content Include="JS\ToggleLeftRight.js" />
+    <Content Include="null.html" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Report10.aspx" />
+    <Content Include="Report11.aspx" />
+    <Content Include="Report12.aspx" />
+    <Content Include="Report13.aspx" />
+    <Content Include="Report14.aspx" />
+    <Content Include="Report15.aspx" />
+    <Content Include="Report16.aspx" />
+    <Content Include="Report17.aspx" />
+    <Content Include="Report18.aspx" />
+    <Content Include="Report19.aspx" />
+    <Content Include="Report20.aspx" />
+    <Content Include="Report21.aspx" />
+    <Content Include="Report3.aspx" />
+    <Content Include="Report4.aspx" />
+    <Content Include="Report4FH.aspx" />
+    <Content Include="Report4Internal.aspx" />
+    <Content Include="Report5.aspx" />
+    <Content Include="Report6.aspx" />
+    <Content Include="Report7.aspx" />
+    <Content Include="Report8.aspx" />
+    <Content Include="Report9.aspx" />
+    <Content Include="ReportFHDetail.aspx" />
+    <Content Include="ReportInternalDetail.aspx" />
+    <Content Include="ReportResource\telerik.kendoui\js\kendo.all.min.js.map" />
+    <Content Include="ReportResource\telerik.kendoui\styles\kendo.common.min.css.map" />
+    <Content Include="ReportResource\telerik.kendoui\styles\kendo.default.min.css.map" />
+    <Content Include="ReportResource\telerik.kendoui\styles\kendo.default.mobile.min.css.map" />
+    <Content Include="CSS\Default.css.exclude" />
+    <Content Include="Images\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\CustomReport.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Report1.aspx" />
+    <Content Include="Report2.aspx" />
+    <Content Include="ReportResource\telerik.kendoui\js\kendo.all.min.js" />
+    <Content Include="ReportResource\telerik.kendoui\styles\kendo.common.min.css" />
+    <Content Include="ReportResource\telerik.kendoui\styles\kendo.default.min.css" />
+    <Content Include="ReportResource\telerik.kendoui\styles\kendo.default.mobile.min.css" />
+    <Content Include="ReportTree.aspx" />
+    <Content Include="JS\Report2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report1.aspx.cs">
+      <DependentUpon>Report1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report1.aspx.designer.cs">
+      <DependentUpon>Report1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report10.aspx.cs">
+      <DependentUpon>Report10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report10.aspx.designer.cs">
+      <DependentUpon>Report10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report11.aspx.cs">
+      <DependentUpon>Report11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report11.aspx.designer.cs">
+      <DependentUpon>Report11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report12.aspx.cs">
+      <DependentUpon>Report12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report12.aspx.designer.cs">
+      <DependentUpon>Report12.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report13.aspx.cs">
+      <DependentUpon>Report13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report13.aspx.designer.cs">
+      <DependentUpon>Report13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report14.aspx.cs">
+      <DependentUpon>Report14.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report14.aspx.designer.cs">
+      <DependentUpon>Report14.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report15.aspx.cs">
+      <DependentUpon>Report15.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report15.aspx.designer.cs">
+      <DependentUpon>Report15.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report16.aspx.cs">
+      <DependentUpon>Report16.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report16.aspx.designer.cs">
+      <DependentUpon>Report16.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report17.aspx.cs">
+      <DependentUpon>Report17.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report17.aspx.designer.cs">
+      <DependentUpon>Report17.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report18.aspx.cs">
+      <DependentUpon>Report18.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report18.aspx.designer.cs">
+      <DependentUpon>Report18.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report19.aspx.cs">
+      <DependentUpon>Report19.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report19.aspx.designer.cs">
+      <DependentUpon>Report19.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report2.aspx.cs">
+      <DependentUpon>Report2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report2.aspx.designer.cs">
+      <DependentUpon>Report2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report20.aspx.cs">
+      <DependentUpon>Report20.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report20.aspx.designer.cs">
+      <DependentUpon>Report20.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report21.aspx.cs">
+      <DependentUpon>Report21.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report21.aspx.designer.cs">
+      <DependentUpon>Report21.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report3.aspx.cs">
+      <DependentUpon>Report3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report3.aspx.designer.cs">
+      <DependentUpon>Report3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report4.aspx.cs">
+      <DependentUpon>Report4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report4.aspx.designer.cs">
+      <DependentUpon>Report4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report4FH.aspx.cs">
+      <DependentUpon>Report4FH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report4FH.aspx.designer.cs">
+      <DependentUpon>Report4FH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report4Internal.aspx.cs">
+      <DependentUpon>Report4Internal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report4Internal.aspx.designer.cs">
+      <DependentUpon>Report4Internal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report5.aspx.cs">
+      <DependentUpon>Report5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report5.aspx.designer.cs">
+      <DependentUpon>Report5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report6.aspx.cs">
+      <DependentUpon>Report6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report6.aspx.designer.cs">
+      <DependentUpon>Report6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report7.aspx.cs">
+      <DependentUpon>Report7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report7.aspx.designer.cs">
+      <DependentUpon>Report7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report8.aspx.cs">
+      <DependentUpon>Report8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report8.aspx.designer.cs">
+      <DependentUpon>Report8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report9.aspx.cs">
+      <DependentUpon>Report9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report9.aspx.designer.cs">
+      <DependentUpon>Report9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportFHDetail.aspx.cs">
+      <DependentUpon>ReportFHDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportFHDetail.aspx.designer.cs">
+      <DependentUpon>ReportFHDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportInternalDetail.aspx.cs">
+      <DependentUpon>ReportInternalDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportInternalDetail.aspx.designer.cs">
+      <DependentUpon>ReportInternalDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportTree.aspx.cs">
+      <DependentUpon>ReportTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportTree.aspx.designer.cs">
+      <DependentUpon>ReportTree.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{d9597f84-a56a-45d5-a195-a045a8081cbb}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1cb45f15-73c8-45dc-97d6-0ff6f6d858f5}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{269abe80-08b2-47ab-884f-c28a420044e9}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportUtility\ReportUtility.csproj">
+      <Project>{085d64b4-a9a9-40e2-91ed-d40387a2894c}</Project>
+      <Name>ReportUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55734</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55734/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
