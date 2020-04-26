@@ -826,10 +826,40 @@ namespace DAL
         {
 
             string sql = @"select BugID,BugTitle,(case when DateClosed is not null then N'已关闭' else N'处理中' end) as status,TimeSpent/60 as TimeSpent,TimeRemain/60 as TimeRemain,SpecificationPoint,ProblemDescription from Bug where BugID in (select BugID from Bug where projectid=100 and SubProjectID in (select subprojectid from TmpTable ))
-  and BugID in (select IssueID from IssueTimeTracking where projectid=100 and TimeItemOwnerID =@UserID)";
+  and BugID in (select IssueID from IssueTimeTracking where projectid=100 and TimeItemOwnerID =@UserID) ";
             SqlParameter[] param = new SqlParameter[]
             {
                 new SqlParameter("@UserID",userID)
+
+            };
+
+            SqlDataReader reportData = null;
+            try
+            {
+                reportData = SQLHelper.GetResultByReader(sql, param);
+                return reportData;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("执行获取方法GetReportDetail_FH的时候出现sql异常:" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static SqlDataReader GetReportDetail_FH(string userID, DateTime startDate, DateTime endDate)
+        {
+
+            string sql = @"select BugID,BugTitle,(case when DateClosed is not null then N'已关闭' else N'处理中' end) as status,TimeSpent/60 as TimeSpent,TimeRemain/60 as TimeRemain,SpecificationPoint,ProblemDescription from Bug where BugID in (select BugID from Bug where projectid=100 and SubProjectID in (select subprojectid from TmpTable ))
+  and BugID in (select IssueID from IssueTimeTracking where projectid=100 and TimeItemOwnerID =@UserID and DateAdded<=@EndDate and DateAdded>=@StartDate)";
+            SqlParameter[] param = new SqlParameter[]
+            {
+                new SqlParameter("@UserID",userID),
+                new SqlParameter("@StartDate",startDate),
+                new SqlParameter("@EndDate",endDate)
             };
 
             SqlDataReader reportData = null;

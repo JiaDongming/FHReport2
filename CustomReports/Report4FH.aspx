@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
+    <title>烽火项目工时统计</title>
      <meta http-equiv="content-type" content="text/html;chartset=UTF-8" /> 
         <link rel="stylesheet" href="CSS/ui-lightness/jquery-ui-1.10.3.custom.min.css" type="text/css" />
         <style type="text/css">
